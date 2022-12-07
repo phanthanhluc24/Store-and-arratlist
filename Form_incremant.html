@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Tên Sản Phẩm: <input id="Pr_name" type="text" name="" value=""><br> <br>
+    Số lượng:<input id="Pr_Quan" type="text" name="" value=""><br> <br>
+    Giá Sản Phẩm:<input id="Pr_Price" type="text" name="" value=""><br> <br>
+    <button onclick="Add()">Add</button>
+    <br><br><br>
+
+    <div id="produc_list"></div>
+</body>
+
+<script>
+    var bang='<table border="1"><tr><th>No</th><th>Name</th><th>Quantity</th><th>Price</th><th>Sub-total</th></tr>'
+    var xuong_dong=" "
+    var cuoi='</table>'
+    var tong=0
+    var stt=1
+
+    function Add(){
+        var name=document.getElementById("Pr_name").value;
+        var So_luong=document.getElementById("Pr_Quan").value;
+        var Gia=document.getElementById("Pr_Price").value;
+        var tong_gia=So_luong*Gia;
+        tong=tong+tong_gia
+        var tang_dan='<tr><td>'+stt+'</td>'+'<td>'+name+'</td>'+'<td>'+So_luong+'</td>'+'<td>'+Gia+'</td>'+'<td>'+tong_gia+'</td></tr>'
+        var tong_thanh_toan='<tr><td> Tổng Giá </td><td>'+tong+'</td></tr>'
+        xuong_dong=xuong_dong+tang_dan
+        document.getElementById("produc_list").innerHTML=bang+xuong_dong+tong_thanh_toan+cuoi
+        stt++
+
+    }
+</script>
+</html>
